@@ -12,7 +12,7 @@ class HorsesIndex extends Component {
     return this.props.horses.map((horse) => {
       return(
         <div key={horse.id}>
-          <h3>{horse.name}</h3>
+          <h3>{horse.model}</h3>
           <p>{horse.owner}</p>
         </div>
       )

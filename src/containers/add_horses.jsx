@@ -18,5 +18,4 @@ function mapStateToProps(state) {
   }
 }
 
-//export default AddHorse;
 export default connect(mapStateToProps, null)(AddHorse);
