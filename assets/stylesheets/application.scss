@@ -1,4 +1,28 @@
 .app {
   margin-top: 20px;
   margin-bottom: 20px;
+  display: flex;
+  width: 100%;
+}
+
+.title_presentation{
+  background-color: red;
+  padding: 10px;
+}
+
+.title_presentation h3{
+  text-align: center;
+}
+
+.title_presentation p{
+  text-align: left;
+}
+
+
+.horses_list{
+  background-color: pink;
+}
+
+.horses_list h1{
+  margin-top: 0;
 }
