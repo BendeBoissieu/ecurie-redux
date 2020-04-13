@@ -11,10 +11,12 @@ class HorsesIndex extends Component {
   renderHorses() {
     return this.props.horses.map((horse) => {
       return(
-        <div key={horse.id}>
-          <h3>{horse.model}</h3>
-          <p>{horse.owner}</p>
-        </div>
+        <Link to={`/${this.props.stableName}/cars/${horse.id}`} key={horse.id}>
+          <div>
+            <h3>{horse.model}</h3>
+            <p>{horse.owner}</p>
+          </div>
+        </Link>
       )
     });
   }
@@ -31,7 +33,8 @@ class HorsesIndex extends Component {
 
 function mapStateToProps(state) {
   return {
-    horses: state.horses
+    horses: state.horses,
+    stableName: state.stableName
   }
 }
 

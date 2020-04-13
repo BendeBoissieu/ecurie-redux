@@ -1,11 +1,21 @@
 export const FETCH_HORSES = 'FETCH_HORSES';
 export const HORSE_CREATED = 'HORSE_CREATED';
+export const FETCH_HORSE = 'FETCH_HORSE';
 
 export function fetchHorses(id) {
   const promise = fetch('https://wagon-garage-api.herokuapp.com/Mon-Ecurie/cars')
     .then(response => response.json());
   return {
     type: FETCH_HORSES,
+    payload: promise
+  }
+}
+
+export function fetchHorse(id) {
+  const promise = fetch(`https://wagon-garage-api.herokuapp.com/cars/${id}`)
+    .then(response => response.json());
+  return {
+    type: FETCH_HORSE,
     payload: promise
   }
 }

@@ -10,6 +10,7 @@ import App from './components/app';
 import horsesReducer from './reducers/horses_reducer';
 import { reducer as formReducer } from 'redux-form';
 import HorsesNew from './containers/horses_new';
+import HorsesShow from './containers/horses_show';
 
 import '../assets/stylesheets/application.scss';
 
@@ -37,6 +38,7 @@ ReactDOM.render(
       <Switch>
         <Route path={`/${stableName}`} exact component={App} />
         <Route path={`/${stableName}/new`} exact component={HorsesNew} />
+        <Route path={`/${stableName}/cars/:id`} component={HorsesShow} />
       </Switch>
     </Router>
   </Provider>,

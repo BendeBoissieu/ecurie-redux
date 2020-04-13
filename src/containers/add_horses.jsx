@@ -17,9 +17,7 @@ class AddHorse extends Component {
 }
 
 function mapStateToProps(state) {
-  return {
-    stableName: state.stableName
-  }
+  return { stableName: state.stableName }
 }
 
 export default connect(mapStateToProps, null)(AddHorse);

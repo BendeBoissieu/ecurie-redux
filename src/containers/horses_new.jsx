@@ -59,7 +59,7 @@ class HorsesNew extends Component {
           <button className="btn btn-primary" type="submit" disabled={this.props.pristine || this.props.submitting}>
             Ajouter le cheval
           </button>
-          <Link to="/Mon-Ecurie">
+          <Link to={`/${this.props.stableName}`}>
             Retour
           </Link>
         </form>
@@ -68,10 +68,14 @@ class HorsesNew extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { stableName: state.stableName }
+}
+
 //with redux form newHorseForm is a specific id
 //then in the render fonction we put the form
 export default reduxForm({
   form: 'newHorseForm' // a unique identifier
 })(
-  connect(null, { createHorse })(HorsesNew)
+  connect(mapStateToProps, { createHorse })(HorsesNew)
 );
