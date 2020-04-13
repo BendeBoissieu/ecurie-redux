@@ -10,7 +10,7 @@ const App = () => {
           <div className="col-xs-12 col-sm-4">
             <AddHorse />
           </div>
-          <div className="col-xs-12 col-sm-6">
+          <div className="col-xs-12 col-sm-8">
             <HorsesIndex />
           </div>
         </div>
