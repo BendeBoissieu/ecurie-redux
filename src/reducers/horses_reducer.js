@@ -1,4 +1,4 @@
-import { FETCH_HORSES } from '../actions';
+import { FETCH_HORSES, HORSE_CREATED } from '../actions';
 export default function (state = [], action) {
   switch(action.type){
     case FETCH_HORSES:

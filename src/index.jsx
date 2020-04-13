@@ -8,6 +8,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createHistory as history } from 'history';
 import App from './components/app';
 import horsesReducer from './reducers/horses_reducer';
+import { reducer as formReducer } from 'redux-form';
+import HorsesNew from './containers/horses_new';
 
 import '../assets/stylesheets/application.scss';
 
@@ -15,18 +17,13 @@ const stableName = "Mon-Ecurie"
 
 const initialState = {
   stableName: stableName,
-  //horses = []
-  horses: [
-    { id: 1, name: 'Flemme', breed: 'Arabe', owner: 'John', age: '4' },
-    { id: 2, name: 'Gris poil', breed: 'Selle Francais', owner: 'Paul', age: '8' },
-    { id: 3, name: 'Sprint', breed: 'Perceron', owner: 'James', age: '14' },
-    { id: 4, name: 'Eclair', breed: 'Andalouse', owner: 'George', age: '10' }
-  ]
+  horses: []
 };
 
 const reducers = combineReducers({
   stableName: (state = stableName, action) => state,
-  horses: horsesReducer
+  horses: horsesReducer,
+  form: formReducer
 });
 
 const store = createStore(reducers, initialState, middlewares);
@@ -39,6 +36,7 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path={`/${stableName}`} exact component={App} />
+        <Route path={`/${stableName}/new`} exact component={HorsesNew} />
       </Switch>
     </Router>
   </Provider>,
