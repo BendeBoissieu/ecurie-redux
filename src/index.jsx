@@ -37,7 +37,7 @@ ReactDOM.render(
     <Router history={history}>
       <Switch>
         <Route path={`/${stableName}`} exact component={App} />
-        <Route path={`/${stableName}/new`} exact component={HorsesNew} />
+        <Route path={`/${stableName}/new`} exact component={HorsesNew}/>
         <Route path={`/${stableName}/cars/:id`} component={HorsesShow} />
       </Switch>
     </Router>

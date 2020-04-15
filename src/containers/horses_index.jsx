@@ -13,10 +13,10 @@ class HorsesIndex extends Component {
       return(
         <Link to={`/${this.props.stableName}/cars/${horse.id}`} key={horse.id}>
           <div className="card-horse">
-            <img src="https://images.unsplash.com/uploads/14136148007774dc82563/ce92d553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1286&q=80" alt="horse_card" height= "70px" />
+            <img src="https://images.unsplash.com/uploads/14136148007774dc82563/ce92d553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1286&q=80" alt="horse_card" height= "80px" />
             <div className="card-text">
               <h3>{horse.model}</h3>
-              <p>{horse.owner}</p>
+              <p>Propriétaire: {horse.owner}</p>
             </div>
           </div>
         </Link>

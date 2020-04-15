@@ -21,16 +21,20 @@ class HorsesShow extends Component {
     }
 
     return (
-      <div>
-        <div className="first-row">
-          <h3>Show</h3>
+      <div className="container_new_horse">
+        <div className="row">
+          <div className="col-xs-4">
+            <img src="https://images.unsplash.com/uploads/14136148007774dc82563/ce92d553?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1286&q=80" alt="horse_card" height= "150px" />
+          </div>
+          <div className="col-xs-8">
+            <h3>{horse.model}</h3>
+            <p>Propriétaire: {horse.owner}</p>
+            <p>Race: {horse.brand}</p>
+            <p>Age: {horse.plate} an(s)</p>
+          </div>
         </div>
-        <div className="post-item">
-          <h3>{horse.model}</h3>
-          <p>{horse.owner}</p>
-        </div>
-        <Link to={`/${this.props.stableName}`}>
-          Back
+        <Link to={`/${this.props.stableName}`} style={{float: 'right'}}>
+          Retour
         </Link>
       </div>
     );

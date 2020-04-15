@@ -29,40 +29,43 @@ class HorsesNew extends Component {
   // in this form we need to create function onSubmit that will call the action post
   render() {
     return (
-      <div>
-        <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-          <Field
-            label="Name"
-            name="model"
-            type="text"
-            component={this.renderField}
-          />
-          <Field
-            label="Owner"
-            name="owner"
-            type="text"
-            component={this.renderField}
-          />
-          <Field
-            label="Breed"
-            name="brand"
-            type="text"
-            component={this.renderField}
-          />
-          <Field
-            label="Age"
-            name="plate"
-            type="text"
-            component={this.renderField}
-          />
+      <div className="container_new_horse">
+        <h2 style={{textAlign: 'center'}}>Ajouter un cheval dans la liste</h2>
+        <div className="new_horse">
+          <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
+            <Field
+              label="Name"
+              name="model"
+              type="text"
+              component={this.renderField}
+            />
+            <Field
+              label="Owner"
+              name="owner"
+              type="text"
+              component={this.renderField}
+            />
+            <Field
+              label="Breed"
+              name="brand"
+              type="text"
+              component={this.renderField}
+            />
+            <Field
+              label="Age"
+              name="plate"
+              type="text"
+              component={this.renderField}
+            />
 
-          <button className="btn btn-primary" type="submit" disabled={this.props.pristine || this.props.submitting}>
-            Ajouter le cheval
-          </button>
-          <Link to={`/${this.props.stableName}`}>
-            Retour
-          </Link>
-        </form>
+            <button className="btn btn-add-horse" type="submit" disabled={this.props.pristine || this.props.submitting}>
+              Ajouter le cheval
+            </button>
+            <Link to={`/${this.props.stableName}`} style={{float: 'right'}}>
+              Retour
+            </Link>
+          </form>
+        </div>
       </div>
     );
   }
