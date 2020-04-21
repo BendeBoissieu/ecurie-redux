@@ -2,9 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
-import { fetchHorse } from '../actions/index';
+import { fetchHorse, removeHorse } from '../actions/index';
+
 
 class HorsesShow extends Component {
+  handleClick = () => {
+    this.props.removeHorse(this.props.horse, () => {
+      this.props.history.push('/');
+    });
+  }
+
   //To call the fetchPost
   componentDidMount() {
     // First check if post not already there
@@ -33,9 +40,15 @@ class HorsesShow extends Component {
             <p>Age: {horse.plate} an(s)</p>
           </div>
         </div>
-        <Link to={`/${this.props.stableName}`} style={{float: 'right'}}>
-          Retour
-        </Link>
+        <div style={{float: 'right'}}>
+          <button className="delete" onClick={this.handleClick}>
+            <i className="fa fa-trash-o" aria-hidden="true"></i>
+            Delete
+          </button>
+          <Link to={"/"} style={{float: 'right'}}>
+            Retour
+          </Link>
+        </div>
       </div>
     );
   }
@@ -48,7 +61,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchHorse }, dispatch);
+  return bindActionCreators({ fetchHorse, removeHorse }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HorsesShow);
