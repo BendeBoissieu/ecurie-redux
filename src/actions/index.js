@@ -1,6 +1,7 @@
 export const FETCH_HORSES = 'FETCH_HORSES';
 export const HORSE_CREATED = 'HORSE_CREATED';
 export const FETCH_HORSE = 'FETCH_HORSE';
+export const REMOVE_HORSE = 'REMOVE_HORSE';
 
 export function fetchHorses(id) {
   const promise = fetch('https://wagon-garage-api.herokuapp.com/Mon-Ecurie/cars')
@@ -32,3 +33,14 @@ export function createHorse(body, callback) {
     type: HORSE_CREATED,
     payload: request
 }; }
+
+export function removeHorse(horse, callback){
+  const request = fetch(`https://wagon-garage-api.herokuapp.com/cars/${horse.id}`, {
+    method: 'DELETE'
+  }).then(response => response.json())
+  .then(callback);
+  return {
+    type: REMOVE_HORSE,
+    payload: horse
+  };
+}
