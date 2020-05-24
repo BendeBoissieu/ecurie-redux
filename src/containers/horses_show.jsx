@@ -41,13 +41,13 @@ class HorsesShow extends Component {
           </div>
         </div>
         <div style={{float: 'right'}}>
+          <Link to={"/"}>
+            Retour
+          </Link>
           <button className="delete" onClick={this.handleClick}>
             <i className="fa fa-trash-o" aria-hidden="true"></i>
             Delete
           </button>
-          <Link to={"/"} style={{float: 'right'}}>
-            Retour
-          </Link>
         </div>
       </div>
     );

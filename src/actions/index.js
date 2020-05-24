@@ -3,8 +3,8 @@ export const HORSE_CREATED = 'HORSE_CREATED';
 export const FETCH_HORSE = 'FETCH_HORSE';
 export const REMOVE_HORSE = 'REMOVE_HORSE';
 
-export function fetchHorses(id) {
-  const promise = fetch('https://wagon-garage-api.herokuapp.com/Mon-Ecurie/cars')
+export function fetchHorses(stableName) {
+  const promise = fetch(`https://wagon-garage-api.herokuapp.com/${stableName}/cars`)
     .then(response => response.json());
   return {
     type: FETCH_HORSES,
@@ -21,9 +21,9 @@ export function fetchHorse(id) {
   }
 }
 
-export function createHorse(body, callback) {
+export function createHorse(body, callback, stableName) {
   console.log(body);
-  const request = fetch('https://wagon-garage-api.herokuapp.com/Mon-Ecurie/cars', {
+  const request = fetch(`https://wagon-garage-api.herokuapp.com/${stableName}/cars`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body)

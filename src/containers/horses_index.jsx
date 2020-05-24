@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 
 class HorsesIndex extends Component {
   componentWillMount(){
-    this.props.fetchHorses();
+    this.props.fetchHorses(this.props.stableName);
   }
   renderHorses() {
     return this.props.horses.map((horse) => {
