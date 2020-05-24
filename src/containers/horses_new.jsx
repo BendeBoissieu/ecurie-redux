@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { Link } from 'react-router-dom';
-
 import { createHorse } from '../actions';
 
 class HorsesNew extends Component {
@@ -22,8 +21,8 @@ class HorsesNew extends Component {
   // the second argument (post) is a callback to feed the then
   onSubmit = (values) => {
     this.props.createHorse(values, () => {
-      this.props.history.push('/Mon-Ecurie');
-    });
+      this.props.history.push('/');
+    }, this.props.stableName );
   }
 
   // in this form we need to create function onSubmit that will call the action post
@@ -34,19 +33,19 @@ class HorsesNew extends Component {
         <div className="new_horse">
           <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
             <Field
-              label="Name"
+              label="Nom"
               name="model"
               type="text"
               component={this.renderField}
             />
             <Field
-              label="Owner"
+              label="Propriétaire"
               name="owner"
               type="text"
               component={this.renderField}
             />
             <Field
-              label="Breed"
+              label="Race"
               name="brand"
               type="text"
               component={this.renderField}
@@ -61,7 +60,7 @@ class HorsesNew extends Component {
             <button className="btn btn-add-horse" type="submit" disabled={this.props.pristine || this.props.submitting}>
               Ajouter le cheval
             </button>
-            <Link to={`/${this.props.stableName}`} style={{float: 'right'}}>
+            <Link to={'/'} style={{float: 'right'}}>
               Retour
             </Link>
           </form>

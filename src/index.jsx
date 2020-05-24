@@ -14,7 +14,7 @@ import HorsesShow from './containers/horses_show';
 
 import '../assets/stylesheets/application.scss';
 
-const stableName = "Mon-Ecurie"
+const stableName = "Ecurie"
 
 const initialState = {
   stableName: stableName,
